@@ -14,7 +14,7 @@ RUN curl -sSL https://get.rvm.io | bash -s stable
 # install ruby
 RUN /bin/bash -l -c "rvm install ruby-2.2.2"
 
-RUN apt-get install -y git-core libmysqlclient-dev
+RUN apt-get install -y git-core libmysqlclient-dev mysql-client
 RUN /bin/bash -l -c "rvm default do gem install bundler"
 
 RUN mkdir -p /tmp/workspace
