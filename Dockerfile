@@ -14,6 +14,8 @@ RUN curl -sSL https://get.rvm.io | bash -s stable
 # install ruby
 RUN /bin/bash -l -c "rvm install ruby-2.2.2"
 
+RUN mkdir -p /tmp/workspace
+
 EXPOSE 22
 
 CMD ["/usr/sbin/sshd", "-D"]
