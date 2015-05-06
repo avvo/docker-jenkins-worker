@@ -15,12 +15,10 @@ RUN curl -sSL https://get.rvm.io | bash -s stable
 RUN /bin/bash -l -c "rvm install ruby-2.2.2"
 
 RUN apt-get install -y git-core
+RUN gem install bundler
 
 RUN mkdir -p /tmp/workspace
 RUN chmod 777 /tmp/workspace
-
-RUN mkdir -p /home/jenkins/.ssh
-COPY id_rsa /home/jenkins/.ssh/
 
 EXPOSE 22
 
