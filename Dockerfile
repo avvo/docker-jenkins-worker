@@ -1,0 +1,19 @@
+FROM evarga/jenkins-slave
+MAINTAINER Jeff Ching <jching@avvo.com>
+
+RUN apt-get update
+RUN apt-get -y upgrade
+
+RUN apt-get install -y build-essential
+RUN apt-get install -y openssl libreadline6 libreadline6-dev curl zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion pkg-config
+
+# install rvm
+RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+RUN curl -sSL https://get.rvm.io | bash -s stable
+
+# install ruby
+RUN /bin/bash -l -c "rvm install ruby-2.2.2"
+
+EXPOSE 22
+
+CMD ["/usr/sbin/sshd", "-D"]

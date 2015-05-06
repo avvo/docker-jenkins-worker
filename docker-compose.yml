@@ -1,0 +1,15 @@
+worker:
+  build: .
+  links:
+    - db
+    - redis
+    - memcached
+
+db:
+  image: mysql
+
+redis:
+  image: redis
+
+memcached:
+  image: memcached
