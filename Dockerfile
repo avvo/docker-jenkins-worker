@@ -18,6 +18,7 @@ RUN apt-get install -y git-core libmysqlclient-dev mysql-client
 RUN /bin/bash -l -c "rvm default do gem install bundler"
 
 RUN apt-get install -y libaspell-dev libmagick++-dev imagemagick
+RUN apt-get install -y libhunspell-dev
 
 RUN mkdir -p /tmp/workspace
 RUN chmod 777 /tmp/workspace
