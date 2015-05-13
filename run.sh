@@ -1,3 +1,6 @@
 #!/bin/bash
-env >> /home/jenkins/.bashrc
+for i in `env`
+do
+  echo "export $i" >> /home/jenkins/.bashrc
+done
 /usr/sbin/sshd -D
