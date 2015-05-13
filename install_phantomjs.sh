@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install build-essential g++ flex bison gperf ruby perl \
+apt-get install -y build-essential g++ flex bison gperf ruby perl \
   libsqlite3-dev libfontconfig1-dev libicu-dev libfreetype6 libssl-dev \
   libpng-dev libjpeg-dev python
 
