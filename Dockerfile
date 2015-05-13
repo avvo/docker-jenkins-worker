@@ -20,8 +20,8 @@ RUN /bin/bash -l -c "rvm default do gem install bundler"
 RUN mkdir -p /tmp/workspace
 RUN chmod 777 /tmp/workspace
 
-ADD run.sh
+ADD run.sh /
 
 EXPOSE 22
 
-CMD ./run.sh
+CMD /run.sh
