@@ -23,6 +23,8 @@ RUN apt-get install -y libhunspell-dev
 ADD install_phantomjs.sh /
 RUN /install_phantomjs.sh
 
+RUN apt-get install -y zip
+
 RUN mkdir -p /tmp/workspace
 RUN chmod 777 /tmp/workspace
 
