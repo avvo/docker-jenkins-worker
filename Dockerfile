@@ -7,27 +7,25 @@ RUN apt-get -y upgrade
 RUN apt-get install -y build-essential
 RUN apt-get install -y openssl libreadline6 libreadline6-dev curl zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion pkg-config
 
+# avvo dependencies
+RUN apt-get install -y git-core libmysqlclient-dev mysql-client libaspell-dev libmagick++-dev imagemagick libhunspell-dev zip
+
 # install rvm
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 RUN curl -sSL https://get.rvm.io | bash -s stable
 
 # install ruby
 RUN /bin/bash -l -c "rvm install ruby-2.2.2"
-
-RUN apt-get install -y git-core libmysqlclient-dev mysql-client
 RUN /bin/bash -l -c "rvm default do gem install bundler"
 
-RUN apt-get install -y libaspell-dev libmagick++-dev imagemagick
-RUN apt-get install -y libhunspell-dev
-
+# install phantomjs - this is super slow...
 ADD install_phantomjs.sh /
 RUN /install_phantomjs.sh
+
+# symlink phantomjs into global bin path
 RUN ln -s /phantomjs/bin/phantomjs /bin/phantomjs
 
-# add phantomjs to path
-
-RUN apt-get install -y zip
-
+# jenkins workspace
 RUN mkdir -p /tmp/workspace
 RUN chmod 777 /tmp/workspace
 
