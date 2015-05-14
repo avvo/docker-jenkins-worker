@@ -1,5 +1,5 @@
 worker:
-  build: .
+  image: registry.docker.prod.avvo.com/jenkins-worker
   ports:
     - 22
   links:
