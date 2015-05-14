@@ -7,5 +7,5 @@ apt-get install -y build-essential g++ flex bison gperf ruby perl \
 git clone git://github.com/ariya/phantomjs.git
 pushd phantomjs
 git checkout 2.0
-echo "y" | ./build.sh
+echo "y" | ./build.sh --jobs 1
 popd
