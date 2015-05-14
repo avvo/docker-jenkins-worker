@@ -22,6 +22,9 @@ RUN apt-get install -y libhunspell-dev
 
 ADD install_phantomjs.sh /
 RUN /install_phantomjs.sh
+RUN ln -s /phantomjs/bin/phantomjs /bin/phantomjs
+
+# add phantomjs to path
 
 RUN apt-get install -y zip
 
