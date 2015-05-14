@@ -11,6 +11,8 @@ db:
   image: mysql
   environment:
     MYSQL_ROOT_PASSWORD: root
+  volumes:
+    - /mnt/ramdisk/mysql1:/var/lib/mysql
 
 redis:
   image: redis
