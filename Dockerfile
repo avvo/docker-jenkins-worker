@@ -29,6 +29,9 @@ RUN ln -s /phantomjs/bin/phantomjs /bin/phantomjs
 RUN mkdir -p /tmp/workspace
 RUN chmod 777 /tmp/workspace
 
+# set PATH env
+ENV PATH /usr/local/rvm/bin:$PATH
+
 ADD run.sh /
 
 EXPOSE 22
