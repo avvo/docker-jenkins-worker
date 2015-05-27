@@ -3,9 +3,9 @@ worker:
   ports:
     - 22
   links:
-    - db
-    - redis
-    - memcached
+    - db:mydb
+    - redis:myredis
+    - memcached:mymemcached
 
 db:
   image: mysql
