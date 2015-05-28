@@ -1,0 +1,21 @@
+worker:
+  image: registry.docker.prod.avvo.com/jenkins-worker
+  ports:
+    - 22
+  links:
+    - db:mydb
+    - redis:myredis
+    - memcached:mymemcached
+
+db:
+  image: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+  volumes:
+    - /mnt/ramdisk/mysql2:/var/lib/mysql
+
+redis:
+  image: redis
+
+memcached:
+  image: memcached

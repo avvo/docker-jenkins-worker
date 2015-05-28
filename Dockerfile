@@ -32,6 +32,10 @@ RUN chmod 777 /tmp/workspace
 # set PATH env
 ENV PATH /usr/local/rvm/bin:$PATH
 
+# need to set the timezone to Pacific
+RUN rm /etc/localtime
+RUN rm ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+
 ADD run.sh /
 
 EXPOSE 22
