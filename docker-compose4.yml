@@ -1,7 +1,7 @@
 worker:
   image: registry.docker.prod.avvo.com/jenkins-worker
   ports:
-    - 32404:22
+    - "32404:22"
   links:
     - db:mydb
     - redis:myredis
