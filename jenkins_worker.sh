@@ -30,8 +30,8 @@ function restart() {
 }
 
 function docker-service {
-  echo docker-compose start -p jenkins$1 -f docker-compose$1.yml $2
-  docker-compose start -p jenkins$1 -f docker-compose$1.yml $2
+  echo docker-compose -p jenkins$1 -f docker-compose$1.yml $2
+  docker-compose -p jenkins$1 -f docker-compose$1.yml $2
 }
 
 case $1 in
