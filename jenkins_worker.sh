@@ -4,8 +4,17 @@ COUNT=${2-4}
 RAMDISK=${RAMDISK-/mnt/ramdisk}
 TEMPLATE=${TEMPLATE-$PWD/template.yml}
 
-test -d $RAMDISK || ("RAMDISK: '$RAMDISK' doesn't exist" && exit 1)
-test -f $TEMPLATE || ("TEMPLATE: '$TEMPLATE' doesn't exist" && exit 1)
+if ! test -d $RAMDISK
+then
+	echo "RAMDISK: '$RAMDISK' doesn't exist, you can set it with 'export RAMDISK=/tmp'"
+	exit 1
+fi
+
+if ! test -f $TEMPLATE
+then
+	echo "TEMPLATE: '$TEMPLATE' doesn't exist, you can set it with 'export TEMPLATE=template.yml'"
+	exit 1
+fi
 
 function create_ramdisk() {
   if test -d ${RAMDISK}/mysql${1}
@@ -18,8 +27,7 @@ function create_ramdisk() {
 }
 
 function create_yaml() {
-  cp ${1} docker-compose${2}.yml
-  sed -i "s/\$NUM/$2/g" docker-compose${2}.yml
+  sed "s!NUM!${2}!g;s!RAMDISK!${RAMDISK}!g" ${TEMPLATE} > docker-compose${2}.yml || exit 1
 }
 
 function docker-service {
@@ -43,6 +51,7 @@ function stop() {
     echo stopping $i
     docker-service $i stop
     docker-service $i "rm -f"
+    rm -v docker-compose${i}.yml
   done
 }
 
