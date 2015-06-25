@@ -1,7 +1,7 @@
 worker:
   image: registry.docker.prod.avvo.com/jenkins-worker
   ports:
-    - "32402:22"
+    - "3240$NUM:22"
   links:
     - db:mydb
     - redis:myredis
@@ -12,7 +12,7 @@ db:
   environment:
     MYSQL_ROOT_PASSWORD: root
   volumes:
-    - /mnt/ramdisk/mysql2:/var/lib/mysql
+    - /mnt/ramdisk/mysql$NUM:/var/lib/mysql
 
 redis:
   image: redis
