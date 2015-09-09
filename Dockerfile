@@ -25,6 +25,9 @@ RUN /install_phantomjs.sh
 # symlink phantomjs into global bin path
 RUN ln -s /phantomjs/bin/phantomjs /bin/phantomjs
 
+# install node
+RUN apt-get install -y nodejs npm
+
 # jenkins workspace
 RUN mkdir -p /tmp/workspace
 RUN chmod 777 /tmp/workspace
