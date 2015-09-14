@@ -39,6 +39,9 @@ RUN chmod 777 /tmp/workspace
 # docker client
 RUN wget -qO- https://get.docker.com/ | sh
 
+# install libmagic-dev (for ruby-filemagic gem)
+RUN apt-get install -y libmagic-dev
+
 # set PATH env
 ENV PATH /usr/local/rvm/bin:$PATH
 
