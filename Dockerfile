@@ -37,7 +37,7 @@ RUN mkdir -p /tmp/workspace
 RUN chmod 777 /tmp/workspace
 
 # docker client
-RUN apt-get install -y docker.io
+RUN wget -qO- https://get.docker.com/ | sh
 
 # set PATH env
 ENV PATH /usr/local/rvm/bin:$PATH
