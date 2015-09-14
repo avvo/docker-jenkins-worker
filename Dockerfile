@@ -36,6 +36,9 @@ RUN /install_wkhtmltopdf.sh
 RUN mkdir -p /tmp/workspace
 RUN chmod 777 /tmp/workspace
 
+# docker client
+RUN apt-get install -y docker.io
+
 # set PATH env
 ENV PATH /usr/local/rvm/bin:$PATH
 
