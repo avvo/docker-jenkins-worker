@@ -28,6 +28,10 @@ RUN ln -s /phantomjs/bin/phantomjs /bin/phantomjs
 # install node
 RUN apt-get install -y nodejs npm
 
+# install wkhtmltopdf
+ADD install_wkhtmltopdf.sh /
+RUN /install_wkhtmltopdf.sh
+
 # jenkins workspace
 RUN mkdir -p /tmp/workspace
 RUN chmod 777 /tmp/workspace
