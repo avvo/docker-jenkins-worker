@@ -37,7 +37,8 @@ RUN mkdir -p /tmp/workspace
 RUN chmod 777 /tmp/workspace
 
 # docker client
-RUN wget -qO- https://get.docker.com/ | sh
+ADD install_docker.sh /
+RUN /install_docker.sh
 
 # install libmagic-dev (for ruby-filemagic gem)
 RUN apt-get install -y libmagic-dev
