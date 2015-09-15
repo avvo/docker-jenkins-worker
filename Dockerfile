@@ -50,6 +50,11 @@ ENV PATH /usr/local/rvm/bin:$PATH
 RUN rm /etc/localtime
 RUN ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 
+# Forces non-interactve SSH connections to read the jenkins .bashrc
+RUN echo 'PermitUserEnvironment yes' | tee -a /etc/ssh/sshd_config 
+	&& echo 'BASH_ENV=/home/jenkins/.bashrc' | tee /home/jenkins/.ssh/environment
+	&& chown jenkins:jenkins /home/jenkins/.ssh/environment
+
 ADD run.sh /
 
 EXPOSE 22
