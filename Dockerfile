@@ -51,9 +51,11 @@ RUN rm /etc/localtime
 RUN ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 
 # Forces non-interactve SSH connections to read the jenkins .bashrc
-RUN echo 'PermitUserEnvironment yes' | tee -a /etc/ssh/sshd_config 
-	&& echo 'BASH_ENV=/home/jenkins/.bashrc' | tee /home/jenkins/.ssh/environment
-	&& chown jenkins:jenkins /home/jenkins/.ssh/environment
+RUN mkdir /home/jenkins/.ssh \
+	&& echo 'PermitUserEnvironment yes' | tee -a /etc/ssh/sshd_config \
+	&& echo "BASH_ENV=/home/jenkins/.bashrc\nPATH=${PATH}" | tee /home/jenkins/.ssh/environment \
+	&& chown -R jenkins:jenkins /home/jenkins/.ssh \
+	&& chmod go-wrx -R /home/jenkins/.ssh
 
 ADD run.sh /
 
