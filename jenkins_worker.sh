@@ -61,7 +61,7 @@ function restart() {
     echo restarting $i
     docker-service $i stop
     docker-service $i "rm -f"
-    docker-service $i up -d
+    docker-service $i "up -d"
   done
 }
 
