@@ -37,8 +37,8 @@ RUN mkdir -p /tmp/workspace
 RUN chmod 777 /tmp/workspace
 
 # custom jenkins workspace for avvo-multi
-mkdir -p /var/lib/jenkins/checkout
-chmod 777 /var/lib/jenkins/checkout
+RUN mkdir -p /var/lib/jenkins/checkout
+RUN chmod 777 /var/lib/jenkins/checkout
 
 # docker client
 ADD install_docker.sh /
