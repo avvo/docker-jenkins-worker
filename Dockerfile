@@ -36,6 +36,10 @@ RUN /install_wkhtmltopdf.sh
 RUN mkdir -p /tmp/workspace /var/lib/jenkins/checkout
 RUN chmod -R 777 /tmp/workspace /var/lib/jenkins
 
+# custom jenkins workspace for avvo-multi
+RUN mkdir -p /var/lib/jenkins/checkout
+RUN chmod 777 /var/lib/jenkins/checkout
+
 # docker client
 ADD install_docker.sh /
 RUN /install_docker.sh
