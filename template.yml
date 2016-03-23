@@ -1,5 +1,5 @@
 worker:
-  image: registry.docker.prod.avvo.com/jenkins-worker
+  image: avvo/docker-jenkins-worker
   ports:
     - "3240NUM:22"
   links:
