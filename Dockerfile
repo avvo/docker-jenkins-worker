@@ -22,9 +22,6 @@ RUN /bin/bash -l -c "rvm default do gem install bundler"
 ADD install_phantomjs.sh /
 RUN /install_phantomjs.sh
 
-# symlink phantomjs into global bin path
-RUN ln -s /phantomjs/bin/phantomjs /bin/phantomjs
-
 # install node
 RUN apt-get install -y nodejs npm
 
