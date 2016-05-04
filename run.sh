@@ -5,8 +5,8 @@ do
 done
 env | grep -v HOME > /home/jenkins/environment.properties
 
-gem install bundler
-bundle install
-bundle exec ./register.rb
+rvm default do gem install bundler
+rvm default do bundle install
+rvm default do bundle exec ./register.rb
 
 /usr/sbin/sshd -D

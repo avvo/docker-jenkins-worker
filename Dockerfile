@@ -61,6 +61,7 @@ RUN mkdir /home/jenkins/.ssh \
 
 ADD run.sh /
 ADD register.rb /
+ADD Gemfile* /
 
 ENV RANCHER_URL					http://rancher.stag.avvo.com:8080/v1/
 ENV RANCHER_ACCESS_KEY 	fixme
