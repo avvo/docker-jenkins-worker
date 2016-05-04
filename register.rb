@@ -75,7 +75,7 @@ def update_hostname(hostname)
       "port" => endpoint["port"],
       "credentialsId" => "923cbcc1-9e48-495b-a675-d3749131cd4a"
     },
-    "labelString" => "docker phantomjs nodejs wkhtmltopdf launchable mysqlcommandline",
+    "labelString" => "docker phantomjs nodejs wkhtmltopdf launchable mysqlcommandline libgeos",
     "nodeProperties" => {
       "stapler-class-bag" => true,
       "hudson-slaves-EnvironmentVariablesNodeProperty" => {
