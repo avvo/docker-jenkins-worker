@@ -49,6 +49,9 @@ ENV PATH /usr/local/rvm/bin:$PATH
 RUN rm /etc/localtime
 RUN ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 
+# install geos
+RUN apt-get install -y libgeos-dev
+
 # Forces non-interactve SSH connections to read the jenkins .bashrc
 RUN mkdir /home/jenkins/.ssh \
 	&& echo 'PermitUserEnvironment yes' | tee -a /etc/ssh/sshd_config \
