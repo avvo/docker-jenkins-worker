@@ -16,7 +16,7 @@ RUN curl -sSL https://get.rvm.io | bash -s stable
 
 # install ruby
 RUN /bin/bash -l -c "rvm install ruby-2.2.2"
-RUN /bin/bash -l -c "rvm default do gem install bundler -v 1.12.5"
+RUN /bin/bash -l -c "rvm default do gem install bundler -v 1.10.5"
 
 # install phantomjs - this is super slow...
 ADD install_phantomjs.sh /
