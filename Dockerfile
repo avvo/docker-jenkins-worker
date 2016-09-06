@@ -15,7 +15,7 @@ RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A170311380
 RUN curl -sSL https://get.rvm.io | bash -s stable
 
 # install ruby
-RUN /bin/bash -l -c "rvm install ruby-2.2.2"
+RUN /bin/bash -l -c "rvm install ruby-2.2.2 && rvm install ruby-2.3.1"
 RUN /bin/bash -l -c "rvm default do gem install bundler -v 1.10.5"
 
 # install phantomjs - this is super slow...
