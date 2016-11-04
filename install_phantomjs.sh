@@ -15,4 +15,4 @@ for phantom_version in ${phantom_versions[@]}; do
 done
 
 ln -s ${DEST}/${PHANTOM_JS}/bin/phantomjs /usr/local/bin/
-ln -s ${DEST}/${PHANTOM_JS_211}/bin/phantomjs-211 /usr/local/bin/
+ln -s ${DEST}/${PHANTOM_JS_211}/bin/phantomjs /usr/local/bin/phantomjs-211
