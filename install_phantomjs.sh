@@ -12,5 +12,7 @@ mkdir -p $DEST
 
 for phantom_version in ${phantom_versions[@]}; do
     wget -O - -q https://bitbucket.org/ariya/phantomjs/downloads/${phantom_version}.tar.bz2 | tar -xvjC $DEST
-    ln -s ${DEST}/${phantom_version}/bin/phantomjs /usr/local/bin/
 done
+
+ln -s ${DEST}/${PHANTOM_JS}/bin/phantomjs /usr/local/bin/
+ln -s ${DEST}/${PHANTOM_JS_211}/bin/phantomjs-211 /usr/local/bin/
