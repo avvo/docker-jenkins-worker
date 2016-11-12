@@ -60,6 +60,15 @@ RUN mkdir /home/jenkins/.ssh \
 	&& chmod go-wrx -R /home/jenkins/.ssh
 
 ADD run.sh /
+ADD register.rb /
+ADD Gemfile* /
+
+ENV RANCHER_URL					http://rancher.stag.avvo.com:8080/v1/
+ENV RANCHER_ACCESS_KEY 	fixme
+ENV RANCHER_SECRET_KEY 	fixme
+ENV JENKINS_HOST				10.3.48.66
+ENV JENKINS_USER				fixme
+ENV JENKINS_PASS				fixme
 
 EXPOSE 22
 
