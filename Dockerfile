@@ -60,8 +60,8 @@ RUN apt-get install -y \
 	zlib1g-dev
 
 # install ruby
-RUN /bin/bash -l -c "rvm install ruby-2.2.2" && \
-	/bin/bash -l -c "rvm default do gem install bundler"
+RUN /bin/bash -l -c "rvm install ruby-2.2.2 && rvm install ruby-2.3.1" && \
+	/bin/bash -l -c "rvm default do gem install bundler -v 1.10.5"
 
 # install phantomjs - this is super slow...
 RUN mkdir -p /usr/local/share && \
